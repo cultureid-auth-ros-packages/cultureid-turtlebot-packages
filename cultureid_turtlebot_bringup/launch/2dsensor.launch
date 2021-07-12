@@ -1,0 +1,9 @@
+<launch>
+  <!-- Deprecated -->
+  <!--
+  <include file="$(find cultureid_rplidar_ros)/launch/rplidar.launch"/>
+  -->
+
+  <include file="$(find cultureid_turtlebot_bringup)/launch/ydlidar_tg30.launch"/>
+
+</launch>

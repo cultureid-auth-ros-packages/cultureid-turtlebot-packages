@@ -1,0 +1,22 @@
+<launch>
+<!--
+  https://answers.ros.org/question/246595/astra_launch-and-astra_camera-packages-problems-with-rgb/
+-->
+  <arg name="num_cameras"/>
+
+  <!-- hokuyo -->
+  <include file="$(find cultureid_turtlebot_bringup)/launch/2dsensor.launch"/>
+
+  <!-- astra camera front; loaded by default -->
+  <include file="$(find cultureid_turtlebot_bringup)/launch/orbbec_pro_full.launch" if="$(eval num_cameras == 1)">
+    <arg name="camera"    value="front_rgbd_camera"/>
+    <arg name="device_id" value="20101230328"/>
+  </include>
+
+  <!-- astra camera back -->
+  <include file="$(find cultureid_turtlebot_bringup)/launch/orbbec_pro_full.launch" if="$(eval num_cameras == 2)">
+    <arg name="camera"    value="rear_rgbd_camera"/>
+    <arg name="device_id" value="20101230020"/>
+  </include>
+
+</launch>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="ydlidar_node"  pkg="ydlidar_ros"  type="ydlidar_node" output="screen" respawn="false" >
+    <param name="port"              type="string" value="/dev/ydlidar"/>
+    <param name="baudrate"          type="int" value="512000"/>
+    <param name="frame_id"          type="string" value="base_laser_link"/>
+    <param name="resolution_fixed"  type="bool"   value="true"/>
+    <param name="auto_reconnect"    type="bool"   value="true"/>
+    <param name="reversion"         type="bool"   value="true"/>
+    <param name="angle_min"         type="double" value="-180" />
+    <param name="angle_max"         type="double" value="180" />
+    <param name="range_min"         type="double" value="0.06" />
+    <param name="range_max"         type="double" value="30.0" />
+    <param name="ignore_array"      type="string" value="" />
+    <param name="frequency"         type="double" value="10"/>
+    <param name="isTOFLidar"        type="bool"   value="true"/>
+
+    <!-- Due to the placement of the lidar we employ a laser filter -->
+    <!-- So remap the original scan to `base scan` -->
+    <!-- The filtered scan will be simply called `scan`. see cultureid_devel/launchers/avanti_live -->
+    <remap from="scan"              to="base_scan"/>
+  </node>
+
+</launch>

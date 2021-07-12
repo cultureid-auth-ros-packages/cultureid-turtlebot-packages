@@ -1,0 +1,17 @@
+<!-- Entry point for using OpenNI2 devices -->
+<!--
+  https://answers.ros.org/question/246595/astra_launch-and-astra_camera-packages-problems-with-rgb/
+  http://surfertas.github.io/rviz/turtlebot/2017/05/03/turtlebot-astrapro.html
+  http://wiki.ros.org/libuvc_camera
+-->
+<launch>
+
+  <arg name="camera"/>
+  <arg name="device_id"/>
+
+  <include file="$(find cultureid_astrapro_launch)/launch/astra_pro.launch">
+    <arg name="camera"    value="$(arg camera)"/>
+    <arg name="device_id" value="$(arg device_id)"/>
+  </include>
+
+</launch>
