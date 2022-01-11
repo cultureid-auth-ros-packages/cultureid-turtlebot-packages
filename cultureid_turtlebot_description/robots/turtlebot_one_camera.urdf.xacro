@@ -22,7 +22,7 @@
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
   <xacro:sensor_orbbec_astra prefix="front_rgbd_camera" parent="base_link" prefix_topic="front_rgbd_camera">
-    <origin xyz="0.13 0.0 0.3148" rpy="0 0 0"/>
+    <origin xyz="0.1024 0.0 0.8808" rpy="0 0 0"/>
   </xacro:sensor_orbbec_astra>
 
   <kobuki/>
